@@ -70,8 +70,20 @@ nav {
 
 .rodape {
   background-color: #23232e;
-  margin-top: 846px;
+  margin-top: 830px;
   font-family: system-ui, -apple-system, Helvetica, Arial, sans-serif;
   text-align: center;
   font-size: 22px;
+}
+
+table {
+  largura : 100% ;
+}
+
+.color-error {
+  color: red;
+}
+
+.cadastro {
+  text-align: center;
 }

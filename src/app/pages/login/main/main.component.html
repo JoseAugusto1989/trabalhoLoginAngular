@@ -2,18 +2,52 @@
 <div>
     <nav>
         <a class="logo">Cadastros de times</a>
-        <div class="mobile-menu">
-
-        </div>
-
-        <ul class="nav-list">
-            <li><a id="index">Home</a></li>
-            <li><a id="contato">Contato</a></li>
-            <li><a id="login">Login</a></li>
-        </ul>
+          <ul class="nav-list">
+              <li><a id="index">Home</a></li>
+              <li><a id="contato">Contato</a></li>
+              <li><a id="login">Login</a></li>
+              <li><a id="cadastro">Cadastro</a></li>
+          </ul>
     </nav>
 </div>
 <!--Fim topo-->
+
+<!--Inicio cadastro-->
+<div class="cadastro">
+  <h1>Cadastro de Times</h1>
+
+  <form #myForm="ngForm" (submit)="saveData(myForm)">
+    <div>
+      <label>Nome do time:</label>
+      <input type="text" [(ngModel)]="cadastroTimes.nomeTime"
+        name="nomeTime" #name="ngModel" required
+        minlength="3">
+    </div>
+
+    <div class="color-error" *ngIf="name.dirty || name.touched">
+      <p *ngIf="name.errors?.['required']">
+        O campo nome é obrigatório
+      </p>
+      <p *ngIf="name.errors?.['minlength']">
+        O campo nome precisa ter no minimo 3 caracteres
+      </p>
+    </div>
+
+    <div>
+      <label>Estado</label>
+      <input type="text" [(ngModel)]="cadastroTimes.estado"
+        name="estado" #email="ngModel">
+    </div>
+
+    <input type="submit" value="Salvar"
+      [disabled]="myForm.invalid">
+  </form>
+
+  <h2>Times cadastrados</h2>
+</div>
+
+
+<!--Fim conteúdo-->
 
 <!--Inicio rodape-->
 <div class="rodape">
