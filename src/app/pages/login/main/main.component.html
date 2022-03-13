@@ -53,10 +53,10 @@
 
 <!--listar os times cadastrados-->
 <div class="cadastro">
-  <h2>Times cadastrados</h2>
+  <h1>Times cadastrados</h1>
   <ul>
     <li style="list-style: none;" class="lista-times" *ngFor="let times of cadastroTimesList">
-    {{ times.nomeTime }}-{{ times.estado }}
+    {{ times.nomeTime }}-{{ times.estado }} - {{ times.numeroVotos }}
     </li>
   </ul>
 </div>

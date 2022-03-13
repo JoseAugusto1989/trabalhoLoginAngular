@@ -16,11 +16,16 @@ export class MainComponent implements OnInit {
 
   cadastroTimes = {} as CadastroTimes
   cadastroTimesList : CadastroTimes[] = []
+  numeroVotos!: CadastroTimes;
 
   saveData(form: NgForm) {
     this.cadastroTimesList.push(this.cadastroTimes)
     this.cadastroTimes = {} as CadastroTimes
     form.resetForm()
+  }
+
+  addCadastro(): void {
+
   }
 
 }
