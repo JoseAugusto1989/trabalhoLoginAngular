@@ -10,7 +10,6 @@
           </ul>
     </nav>
 </div>
-<!--Fim topo-->
 
 <!--Inicio cadastro-->
 <div class="cadastro">
@@ -24,6 +23,7 @@
         minlength="3">
     </div>
 
+    <!--validação para o nome do time-->
     <div class="color-error" *ngIf="name.dirty || name.touched">
       <p *ngIf="name.errors?.['required']">
         O campo nome é obrigatório
@@ -34,20 +34,32 @@
     </div>
 
     <div>
-      <label>Estado</label>
+      <label>Estado:</label>
       <input type="text" [(ngModel)]="cadastroTimes.estado"
-        name="estado" #email="ngModel">
+        name="estado" #email="ngModel" required
+        maxlength="2">
     </div>
 
-    <input type="submit" value="Salvar"
-      [disabled]="myForm.invalid">
-  </form>
+    <!--validação para o estado-->
+    <div class="color-error" *ngIf="name.dirty || name.touched">
+      <p *ngIf="name.errors?.['required']">
+        O campo é a sigla do estado. Ex: "SP", "RJ", "MG"
+      </p>
 
-  <h2>Times cadastrados</h2>
+      <input type="submit" value="Salvar" [disabled]="myForm.invalid">
+    </div>
+  </form>
 </div>
 
-
-<!--Fim conteúdo-->
+<!--listar os times cadastrados-->
+<div class="cadastro">
+  <h2>Times cadastrados</h2>
+  <ul>
+    <li style="list-style: none;" class="lista-times" *ngFor="let times of cadastroTimesList">
+    {{ times.nomeTime }}-{{ times.estado }}
+    </li>
+  </ul>
+</div>
 
 <!--Inicio rodape-->
 <div class="rodape">
