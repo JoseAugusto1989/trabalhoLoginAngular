@@ -2,6 +2,7 @@ import { CadastroTimes } from './cadastro-times';
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 
+
 @Component({
   selector: 'app-main',
   templateUrl: './main.component.html',
