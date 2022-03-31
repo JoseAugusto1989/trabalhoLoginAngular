@@ -1,3 +1,4 @@
+import { AuthService } from './pages/login/auth.service';
 
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -14,16 +15,16 @@ import { CadastroComponent } from './pages/login/cadastro/cadastro.component';
     AppComponent,
     LoginComponent,
     MainComponent,
-    CadastroComponent
+    CadastroComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    routing
+    routing,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [AuthService],
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

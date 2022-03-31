@@ -14,57 +14,59 @@
 <div class="cadastro">
   <h1>Cadastro de Times</h1>
 
-  <form #myForm="ngForm" (submit)="saveData(myForm)">
+  <form [formGroup]="group" (ngSubmit)="saveData()">
     <div>
       <label>Nome do time:</label>
-      <input type="text" [(ngModel)]="cadastroTimes.nomeTime"
-        name="nomeTime" #name="ngModel" required
-        minlength="3">
+      <input type="text" formControlName="nomeTime">
     </div>
 
     <!--validação para o nome do time-->
-    <div class="color-error" *ngIf="name.dirty || name.touched">
+    <!-- <div class="color-error" *ngIf="name.dirty || name.touched">
       <p *ngIf="name.errors?.['required']">
         O campo nome é obrigatório
       </p>
       <p *ngIf="name.errors?.['minlength']">
         O campo nome precisa ter no minimo 3 caracteres
       </p>
-    </div>
+    </div> -->
 
     <div>
       <label>Estado:</label>
-      <input type="text" [(ngModel)]="cadastroTimes.estado"
-        name="estado" #email="ngModel" required
-        maxlength="2">
+      <input type="text" formControlName="estado">
     </div>
 
+    <input type="submit" value="Salvar">
+
     <!--validação para o estado-->
-    <div class="color-error" *ngIf="name.dirty || name.touched">
+    <!-- <div class="color-error" *ngIf="name.dirty || name.touched">
       <p *ngIf="name.errors?.['required']">
         O campo é a sigla do estado. Ex: "SP", "RJ", "MG"
       </p>
 
-      <input type="submit" value="Salvar" [disabled]="myForm.invalid">
-    </div>
+    </div> -->
   </form>
 </div>
 
 <!--listar os times cadastrados-->
-<div class="cadastro">
-  <h1>Times cadastrados</h1>
-  <ul>
-    <li style="list-style: none;" class="lista-times" *ngFor="let times of cadastroTimesList">
-    {{ times.nomeTime }}-{{ times.estado }} - {{ times.numeroVotos }}
-    </li>
-  </ul>
-</div>
 
-  <!--Inicio campo com imagem-->
-<div class="cadastro">
-  <h1>Obrigado pela sua visita...</h1>
-  <img class="photo" url="/src/assets/dev.jpg">
-</div>
+<h1>Times cadastrados</h1>
+<table>
+  <thead>
+    <tr>
+      <th>Classificação</th>
+      <th>Time</th>
+      <th>Pontuação</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let team of cadastroTimesList;
+      let currentIndex = index">
+      <td>{{ currentIndex + 1 }}</td>
+      <td>{{ team.nomeTime }}-{{ team.estado }}</td>
+      <td>{{ team.numeroVotos }}</td>
+    </tr>
+  </tbody>
+</table>
 
 <!--Inicio rodape-->
 <div class="rodape">

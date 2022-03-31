@@ -1,3 +1,5 @@
+import { Usuario } from './usuario';
+import { AuthService } from './../../pages/login/auth.service';
 import { LoginModel } from './../../models/LoginModel';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
@@ -11,8 +13,10 @@ import { Router } from '@angular/router';
 export class LoginComponent implements OnInit {
 
   loginForm!: FormGroup;
+  public usuario: Usuario = new Usuario();
 
-  constructor(private formbuilder: FormBuilder, private router: Router) {
+
+  constructor(private formbuilder: FormBuilder, private router: Router, private authService: AuthService) {
 
   }
 
@@ -26,6 +30,10 @@ export class LoginComponent implements OnInit {
   submitLogin() {
     debugger
     var dadosLogin = this.loginForm.getRawValue() as LoginModel;
+  }
+
+  fazerLogin() {
+    this.authService.fazerLogin(this.usuario);
   }
 
 }

@@ -4,5 +4,4 @@ export interface CadastroTimes {
   estado: string;
   porcentagem: number;
   numeroVotos: number;
-
 }
