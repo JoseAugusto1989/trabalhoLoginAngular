@@ -17,7 +17,7 @@
   <form [formGroup]="group" (ngSubmit)="saveData()">
     <div>
       <label>Nome do time:</label>
-      <input type="text" formControlName="nomeTime">
+      <input class="inserir-campo" type="text" formControlName="nomeTime">
     </div>
 
     <!--validação para o nome do time-->
@@ -32,10 +32,10 @@
 
     <div>
       <label>Estado:</label>
-      <input type="text" formControlName="estado">
+      <input class="inserir-campo" type="text" formControlName="estado">
     </div>
 
-    <input type="submit" value="Salvar">
+    <input class="salvar" type="submit" value="Salvar">
 
     <!--validação para o estado-->
     <!-- <div class="color-error" *ngIf="name.dirty || name.touched">
@@ -49,24 +49,26 @@
 
 <!--listar os times cadastrados-->
 
-<h1>Times cadastrados</h1>
-<table>
-  <thead>
-    <tr>
-      <th>Classificação</th>
-      <th>Time</th>
-      <th>Pontuação</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr *ngFor="let team of cadastroTimesList;
-      let currentIndex = index">
-      <td>{{ currentIndex + 1 }}</td>
-      <td>{{ team.nomeTime }}-{{ team.estado }}</td>
-      <td>{{ team.numeroVotos }}</td>
-    </tr>
-  </tbody>
-</table>
+<div class="cadastro">
+  <h1>Times cadastrados</h1>
+  <table>
+    <thead>
+      <tr>
+        <th>Classificação</th>
+        <th>Time</th>
+        <th>Número de votos</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of cadastroTimesList;
+        let currentIndex = index">
+        <td>{{ currentIndex + 1 }}</td>
+        <td>{{ team.nomeTime }}-{{ team.estado }}</td>
+        <td>{{ team.numeroVotos }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
 
 <!--Inicio rodape-->
 <div class="rodape">

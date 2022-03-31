@@ -35,14 +35,16 @@ export class MainComponent implements OnInit {
     let xuxa = this.cadastroTimesList.find((time) => {
       if(time.nomeTime == this.group.value.nomeTime) {
         this.group.value.numeroVotos += 1;
+        this.cadastroTimesList.sort(this.sortData)
         this.group.value.CadastroTimes.resetForm()
       }
     });
     if(!xuxa) {
       this.cadastroTimesList.push(this.group.value);
       this.group.value.CadastroTimes.resetForm()
-  }
     }
-    // resetar o formulario
+  }
+
+  sortData = (a : CadastroTimes, b : CadastroTimes) => b.numeroVotos - a.numeroVotos
 
 }
