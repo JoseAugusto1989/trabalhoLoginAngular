@@ -36,4 +36,8 @@ export class LoginComponent implements OnInit {
     this.authService.fazerLogin(this.usuario);
   }
 
+  criarLogin() {
+    this.router.navigate(['/cadastro'])
+  }
+
 }
